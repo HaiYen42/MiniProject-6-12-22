@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./project.css">
+    <script src="https://kit.fontawesome.com/b04df19cee.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Thanh menu  -->
+        <nav class="menu-bar col-12">
+            <div class="menu-left col-4">
+                <a href="#" >HAIYEN FOODS</a>
+            </div>
+            <div class="menu-right col-8">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">SHOP</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">FAVORITE</a></li>
+                    <li><a href="#" onclick="toRegister()">REGISTER</a></li>
+                    <li><i class="fa-solid fa-cart-shopping" id="showCart"></i></li>
+                    <li><div id="productCart">
+                        <div id="showMoney"></div>
+                    </div></li>
+                </ul>
+            </div>
+            
+        </nav>
+         <!-- Anh giua  -->
+        <nav class="col-12 mainIMG">
+            <img src="/img/anhmoi.png" alt="">
+        </nav>
+
+        <!-- Noi dung  -->
+        <div class=" subheading col-12">
+            <h2>Our Product</h2>
+            <span>Featured Products</span>
+        </div> <br><br>
+
+        <!-- Sản phẩm -->
+        <div class="product1 col-12">
+            <div class="col-3">
+                <div><img src="./img/anh1.jpg" alt=""> </div>
+                <div class="product">BELL PEPPER</div>
+                <div class="price">
+                    <small>$</small>80.00</div>
+                <i class="fa-solid fa-heart icon"></i> &nbsp;&nbsp;&nbsp;
+                <i class="fa-solid fa-cart-shopping addCart"></i>
+                
+            
+            </div>
+            <div class="col-3">
+                <div><img src="./img/anh2.webp" alt=""></div>
+                <div class="product">STRAWBERRY</div>
+                <div class="price">
+                    <small>$</small>120.00</div>
+                <i class="fa-solid fa-heart icon" ></i>&nbsp;&nbsp;&nbsp;
+                <i class="fa-solid fa-cart-shopping addCart"></i>
+            </div>
+            <div class="col-3">
+                <div><img src="./img/anh3.jpg" alt=""></div>
+                <div class="product">GREEN BEANS</div>
+                <div class="price">
+                    <small>$</small>120.00</div>
+                <i class="fa-solid fa-heart icon"></i>&nbsp;&nbsp;&nbsp;
+                <i class="fa-solid fa-cart-shopping addCart"></i>
+                </div>
+                <div class="col-3">
+                    <div><img src="./img/anh4.jpg" alt=""></div>
+                    <div class="product">GREEN BEANS</div>
+                    <div class="price">
+                        <small>$</small>120.00</div>
+                <i class="fa-solid fa-heart icon"></i>&nbsp;&nbsp;&nbsp;
+                <i class="fa-solid fa-cart-shopping addCart"></i>
+                    </div>
+            </div>
+        </div> <br> <br> <br>
+        <div class="product1 col-12">
+            <div class="col-3">
+                <div><img src="./img/anh5.jpg" alt=""></div>
+                <div class="product">TOMATOE</div>
+                <div class="price">
+                    <small>$</small>80.00</div>
+            <i class="fa-solid fa-heart icon"></i>&nbsp;&nbsp;&nbsp;
+            <i class="fa-solid fa-cart-shopping addCart"></i>
+            </div>
+            <div class="col-3">
+                <div><img src="./img/anh6.jpg" alt=""></div>
+                <div class="product">BROCOLLI</div>
+                <div class="price">
+                    <small>$</small>120.00</div>
+            <i class="fa-solid fa-heart icon"></i>&nbsp;&nbsp;&nbsp;
+            <i class="fa-solid fa-cart-shopping addCart"></i>
+            </div>
+            <div class="col-3"> 
+                <div><img src="./img/anh7.jpg" alt=""></div>
+                <div class="product">CARROTS</div>
+                <div class="price">
+                    <small>$</small>120.00</div>
+            <i class="fa-solid fa-heart icon"></i>&nbsp;&nbsp;&nbsp;
+            <i class="fa-solid fa-cart-shopping addCart"></i>
+            </div>
+            <div class="col-3">
+                <div><img src="./img/anh8.jpg" alt=""></div>
+                <div class="product">FRUIT JUICE</div>
+                <div class="price">
+                    <small>$</small>120.00</div>
+           <i class="fa-solid fa-heart icon"></i>&nbsp;&nbsp;&nbsp;
+           <i class="fa-solid fa-cart-shopping addCart"></i>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+    <footer >
+        <div class="footerTotal col-12">
+            <div class="footerRight col-6">
+                <h2>Subcribe to our Newsletter
+                </h2> <br><br>
+                <p style="color:grey;">Get e-mail updates about our latest shops and special offers</p>
+            </div>
+            <div class="footerLeft col-6">
+                <div class= "email col-4">
+                <input type="text" placeholder="Enter email address" id="email" size="40">
+                </div>
+                <div class= "sub col-2">
+                <input type="submit" value="Subcribe" id="sub">
+                 </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./project.js"> </script>
+</body>
+</html>

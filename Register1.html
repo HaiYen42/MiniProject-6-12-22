@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/b04df19cee.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    h1{
+        text-align: center;
+        color:rgb(46, 50, 97)
+    }
+    body{
+    background: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);
+  }
+    
+    .container{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        /* <!-- để container ra giữa--> */
+        margin: 0 auto;  
+        padding: 30px;
+        text-align: center;
+        background-color: white;
+    }
+    .container input{
+        margin-bottom: 20px;
+       
+    }
+    .error-email{
+        color: red;
+    }
+    .error-password{
+        color: red;
+    }
+    .error-confirmPass{
+        color: red;
+    }
+    .form-password{
+        position: relative;
+    }
+    .fa-eye-slash{
+        position: absolute;
+        left: 210px;
+        top: 20px;
+    }
+    .form-group button{
+        background: #4285F4;
+        color: #FFFFFF;
+        border: 0;
+        border-radius: 4px;
+        padding: 12px 12px;
+        margin-top: 15px;
+    }
+</style>
+<body>
+        <!-- register -->
+        <h1>Register</h1>
+        <div class="container">
+            <label for="email">Email</label> <br> <!--for trung voi id -->
+            <input type="text" id="email"> <br>
+            <div class="error-email" id="error-Email" style="display:none ">error</div>
+          <div class="form-password">
+            <label for="password">Password</label> <br>
+            <i onclick="showPass()" id="showPass"class="fa-solid fa-eye-slash"></i>
+            <input type="password" id="password"> <br>
+          </div>
+            <div class="error-password" style="display:none ">error</div>
+           <div class="form-password">
+            <label for="confirmPass">Confirm password</label> <br>
+            <i onclick="showPass2()" id="showPass2" class="fa-solid fa-eye-slash"></i>
+            <input type="password" id="confirmPass"> <br>
+           </div>
+            <div class="error-confirmPass" style="display:none ">error</div>
+           <div class="form-group" > <button onclick="register(), checkPassword(), confirmPass()" >Register</button> </div>
+            <p style="display:none" id="emailExist">Bạn đã có tài khoản rồi <span id="redirectRegister" onclick="redirectLogin()" 
+                style="color: red;"> Login </span> </p>
+
+        </div>
+        <script>
+            function redirectLogin(){
+                // location.href="login.html" //chuyển trang đăng ký cách 1
+                window.location="./login1.html" //Chuyển trang đăng ký cách 2
+            }
+        let flag;
+        console.log(flag);
+            function register(){
+                let email=document.getElementById("email").value;
+                // console.log(email,"email");
+                let password=document.getElementById("password").value;
+                // console.log(password,"password");
+                let confirmPass=document.getElementById("confirmPass").value;
+                if(email==""){
+                    console.log("lỗi rồi");
+                    let errorEmail=document.getElementById("error-Email").
+                    style.display="block"; //Bật công tắc error
+                } else{
+                    document.getElementById("error-Email").
+                    style.display="none"; 
+                }
+            //   Tạo mảng để lưu vào localStorage
+                let obj={
+                email:email, // property -thuộc tính : value- giá trị thuộc tính
+                password: password, 
+            }
+            let listUser=localStorage.getItem("listUser");
+            console.log("1111",listUser);
+            if(listUser==null){
+                listUser=[];
+                listUser.push(obj);
+                localStorage.setItem("listUser",JSON.stringify(listUser));
+            } else{
+                listUser=JSON.parse(listUser);
+                // Check trùng email
+                for (let i = 0; i < listUser.length; i++) {
+                    if(listUser[i].email == email) {
+                        flag=false;
+                        console.log(listUser[i].email);
+                        console.log(email);
+                        break;
+                    } else{
+                        flag=true;
+                    }
+                }
+                
+                console.log(flag);
+                if (flag==true) {
+                    console.log("Ko trùng email");
+                    listUser.push(obj);
+                    localStorage.setItem("listUser",JSON.stringify(listUser));
+                } else{
+                    console.log("trùng email");
+                    let emailExist=document.getElementById("emailExist").
+                    style.display="block";
+                }
+              }
+            }
+
+            function showPass(){
+                let showPass=document.getElementById("showPass");
+                showPass.classList.toggle("fa-eye");
+                let showPassword=document.getElementById("password");
+                let result=showPassword.getAttribute("type");
+                result=="password"? showPassword.setAttribute("type", "text"): 
+                showPassword.setAttribute("type", "password")
+            }
+            function showPass2(){
+                let showPass=document.getElementById("showPass2");
+                showPass.classList.toggle("fa-eye");
+                let showPassword=document.getElementById("confirmPass");
+                let result=showPassword.getAttribute("type");
+                result=="password"? showPassword.setAttribute("type", "text"): 
+                showPassword.setAttribute("type", "password")
+            }
+
+         // kiem tra su hop le cua Password
+        let inputtext=document.getElementById('password')
+        let confirmpsw=document.getElementById("confirmPass")
+        function checkPassword(){
+            var passw= /^[A-Za-z]\w{7,14}$/;
+            if(inputtext.value.match(passw)){
+                alert('Correct. Please Login !')
+                window.location="./login1.html"
+                return true;
+            }
+            else
+            {
+                alert('Wrong...!')
+                return false;
+            }
+        }
+        function confirmPass(){
+            if(inputtext.value == confirmpsw.value){
+                console.log('Correct');
+               
+            } else{
+                console.log('Wrong ! ')
+            }
+        }   
+            
+        </script>
+</body>
+</html>
